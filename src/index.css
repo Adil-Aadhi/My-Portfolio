@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+html, body {
+  max-width: 100%;
+  overflow-x: clip; /* Fixes white screen without breaking stack animation */
+  margin: 0;
+  padding: 0;
+  background-color: black; /* Ensures even if it leaks, it's not white */
+}
+
+#root {
+  overflow-x: clip;
+}
+* {
+  cursor: none !important;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: none;
+}
+html {
+  scroll-behavior: smooth;
+}
