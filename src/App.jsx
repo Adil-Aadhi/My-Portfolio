@@ -12,6 +12,7 @@ import Contact from "./components/Contacts";
 import IntroScreen from "./components/IntroScreen";
 import CustomCursor from "./components/customCursor";
 import LeetCodeStats from "./components/LeetcodeStats";
+import Timeline from "./components/TimeLine";
 
 const Gallery=lazy(()=>import("./components/Gallery"))
 
@@ -38,6 +39,7 @@ function App() {
           <Navbar />
           <Hero />
           <About />
+          <Timeline/>
           <Suspense fallback={<h2>Loading..Gallery </h2>}>
             <Gallery />
           </Suspense>
