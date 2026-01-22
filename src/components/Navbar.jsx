@@ -1,6 +1,8 @@
 import { FaGithub, FaLinkedin,FaInstagram, FaWhatsapp,FaTimes  } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { motion,AnimatePresence  } from "framer-motion";
+import { FiMenu, FiX } from "react-icons/fi";
+
 
 const Navbar = () => {
 
@@ -18,22 +20,22 @@ const Navbar = () => {
 
   return (
     <motion.nav
-  initial={{ y: 0, scale: 1 }}
-  animate={{
-    y: scrolled ? 10 : 0,
-    scale: scrolled ? 0.96 : 1,
-  }}
-  transition={{ duration: 0.3 }}
-  className={`
-    fixed left-1/2 -translate-x-1/2 top-0 z-50 text-white
-    transition-all duration-300
-    ${
-      scrolled
-        ? "max-w-5xl  w-[80%] rounded-2xl bg-black/70 backdrop-blur-2xl shadow-2xl border border-white/20"
-        : "w-full bg-black/20 backdrop-blur-md border-b border-white/20"
-    }
-  `}
->
+        initial={{ y: 0, scale: 1 }}
+        animate={{
+          y: scrolled ? 10 : 0,
+          scale: scrolled ? 0.96 : 1,
+        }}
+        transition={{ duration: 0.3 }}
+        className={`
+          fixed left-1/2 -translate-x-1/2 top-0 z-50 text-white
+          transition-all duration-300
+          ${
+            scrolled
+              ? "max-w-5xl  w-[80%] rounded-2xl bg-black/20 backdrop-blur-md shadow-2xl border border-white/20"
+              : "w-full bg-black/20 backdrop-blur-xl border-b border-white/20"
+          }
+        `}
+      >
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
 
           <motion.a
@@ -64,9 +66,9 @@ const Navbar = () => {
             Projects
           </a>
 
-          <a href="#contact" className="hover:text-cyan-400 transition">
+          {/* <a href="#contact" className="hover:text-cyan-400 transition">
             Contact
-          </a>
+          </a> */}
 
           <div className="flex gap-4 text-xl text-white">
 
@@ -94,18 +96,39 @@ const Navbar = () => {
             <FaInstagram className="hover:text-cyan-400 cursor-pointer transition" />
           </a>
 
+          <a
+            href="https://wa.me/919544773622"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaWhatsapp className="hover:text-cyan-400 cursor-pointer transition" />
+          </a>
+
         </div>
 
 
         </div>
 
         {/* Mobile Button */}
-        <motion.button
-          className="md:hidden text-2xl text-white hover:text-cyan-400 transition"
+       <motion.button
+          className="md:hidden flex flex-col justify-center gap-1.5"
           onClick={() => setOpen(!open)}
         >
-          ☰
+          <motion.span
+            animate={open ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+            className="w-6 h-[2px] bg-white"
+          />
+          <motion.span
+            animate={open ? { opacity: 0 } : { opacity: 1 }}
+            className="w-6 h-[2px] bg-white"
+          />
+          <motion.span
+            animate={open ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+            className="w-6 h-[2px] bg-white"
+          />
         </motion.button>
+
+
 
       </div>
 

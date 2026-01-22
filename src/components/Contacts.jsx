@@ -1,5 +1,5 @@
 import { motion,AnimatePresence } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope,FaWhatsapp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope,FaWhatsapp, FaInstagram } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import { useRef,useState,useEffect } from "react";
 
@@ -71,23 +71,62 @@ const Contact = () => {
 
               <div className="flex items-center gap-3">
                 <FaEnvelope className="text-cyan-400" />
-                <span>adilshinasmongam@gmail.com</span>
+                <a
+                  href="mailto:adilshinasmongam@gmail.com"
+                  className="hover:text-cyan-400 transition break-all"
+                >
+                  adilshinasmongam@gmail.com
+                </a>
               </div>
 
               <div className="flex items-center gap-3">
                 <FaGithub className="text-cyan-400" />
-                <span>github.com/Adil-Aadhi</span>
+                <a
+                  href="https://github.com/Adil-Aadhi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cyan-400 transition break-all"
+                >
+                  Adil-Aadhi
+                </a>
               </div>
+
 
               <div className="flex items-center gap-3">
                 <FaLinkedin className="text-cyan-400" />
-                <span>linkedin.com/in/adil-shinas-b8545327a</span>
+                <a
+                  href="https://www.linkedin.com/in/adil-shinas-b8545327a"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cyan-400 transition break-all"
+                >
+                  adil-shinas-b8545327a
+                </a>
               </div>
 
 
               <div className="flex items-center gap-3">
                 <FaWhatsapp className="text-cyan-400" />
-                <span>+91 9544773622</span>
+                <a
+                  href="https://wa.me/919544773622"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cyan-400 transition"
+                >
+                  +91 9544773622
+                </a>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <FaInstagram className="text-cyan-400" />
+                <a
+                  href="https://instagram.com/adil__a_adhi_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cyan-400 transition"
+                >
+                  @adil__a_adhi_
+                </a>
               </div>
 
             </div>

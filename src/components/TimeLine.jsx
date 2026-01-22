@@ -4,7 +4,7 @@ import { timelineData } from "./timelineData";
 
 /* ---------------- Year Badge ---------------- */
 const YearBadge = ({ year }) => (
-  <div className="inline-block px-6 py-2 rounded-full border border-cyan-400/40 text-cyan-400 text-2xl font-bold backdrop-blur-md">
+  <div className="inline-block px-6 py-2 rounded-full border border-cyan-400/40 text-cyan-400 text-2xl font-bold backdrop-blur-md bg-black/60">
     {year}
   </div>
 );
@@ -13,10 +13,16 @@ const YearBadge = ({ year }) => (
 const TimelineCard = ({ item }) => (
   <motion.div
     whileHover={{ scale: 1.03 }}
-    className="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl shadow-lg hover:shadow-cyan-500/20 transition max-w-full"
+    className="bg-white/5 backdrop-blur-xl border border-white/10 
+               p-4 
+               rounded-xl 
+               shadow-md 
+               hover:shadow-cyan-500/20 
+               transition 
+               max-w-[92%] mx-auto"
   >
-    <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
-    <p className="text-white/70 leading-relaxed">{item.description}</p>
+    <h4 className="text-lg md:text-xl font-semibold mb-2">{item.title}</h4>
+    <p className="text-sm md:text-base text-white/70 leading-relaxed">{item.description}</p>
   </motion.div>
 );
 
@@ -46,77 +52,92 @@ const Timeline = () => {
         My Journey
       </motion.h2>
 
-      {/* Vertical Line */}
-      <div className="absolute left-1/2 top-48 bottom-24 w-[3px] bg-white/10 -translate-x-1/2">
+      {/* ================= PROGRESS LINE (ALL VIEWS) ================= */}
+      <div className="absolute left-1/2 top-48 bottom-24 w-[3px] bg-white/10 -translate-x-1/2 z-0">
         <motion.div
           style={{ height }}
           className="w-full bg-gradient-to-b from-cyan-400 to-blue-500 origin-top rounded-full"
         />
       </div>
 
-      {/* Timeline Items */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-0 space-y-32 relative z-10">
+      {/* ================= TIMELINE ITEMS ================= */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-0 space-y-20 md:space-y-32 relative z-10">
         {timelineData.map((block, index) => {
           const isLeft = index % 2 === 0;
 
           return (
-            <div key={index} className="grid grid-cols-9 items-start">
+            <div key={index}>
 
-              {/* LEFT SIDE */}
-              <div
-                className={`col-span-4 ${
-                  isLeft
-                    ? "text-right pr-4 md:pr-12"
-                    : "pl-4 md:pl-12"
-                }`}
-              >
-                {isLeft ? (
-                  <motion.div
-                    initial={{ opacity: 0, x: -60 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                  >
-                    <YearBadge year={block.year} />
-                  </motion.div>
-                ) : (
-                  <div className="space-y-6">
-                    {block.items.map((item, i) => (
-                      <TimelineCard key={i} item={item} />
-                    ))}
-                  </div>
-                )}
+              {/* ================= MOBILE VIEW ================= */}
+              <div className="md:hidden flex flex-col items-center text-center space-y-6 relative">
+
+                {/* DOT */}
+                <span className="w-4 h-4 rounded-full bg-cyan-400 shadow-[0_0_15px_#22d3ee] z-10" />
+
+                <YearBadge year={block.year} />
+
+                <div className="space-y-6 w-full">
+                  {block.items.map((item, i) => (
+                    <TimelineCard key={i} item={item} />
+                  ))}
+                </div>
               </div>
 
-              {/* CENTER DOT */}
-              <div className="col-span-1 flex justify-center pt-3">
-                <span className="w-5 h-5 rounded-full bg-cyan-400 shadow-[0_0_20px_#22d3ee]" />
-              </div>
+              {/* ================= DESKTOP VIEW ================= */}
+              <div className="hidden md:grid grid-cols-9 items-start">
 
-              {/* RIGHT SIDE */}
-              <div
-                className={`col-span-4 ${
-                  isLeft
-                    ? "pl-4 md:pl-12"
-                    : "text-left pr-4 md:pr-12"
-                }`}
-              >
-                {isLeft ? (
-                  <div className="space-y-6">
-                    {block.items.map((item, i) => (
-                      <TimelineCard key={i} item={item} />
-                    ))}
-                  </div>
-                ) : (
-                  <motion.div
-                    initial={{ opacity: 0, x: 60 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                  >
-                    <YearBadge year={block.year} />
-                  </motion.div>
-                )}
-              </div>
+                {/* LEFT SIDE */}
+                <div
+                  className={`col-span-4 ${
+                    isLeft ? "text-right pr-12" : "pl-12"
+                  }`}
+                >
+                  {isLeft ? (
+                    <motion.div
+                      initial={{ opacity: 0, x: -60 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                    >
+                      <YearBadge year={block.year} />
+                    </motion.div>
+                  ) : (
+                    <div className="space-y-6">
+                      {block.items.map((item, i) => (
+                        <TimelineCard key={i} item={item} />
+                      ))}
+                    </div>
+                  )}
+                </div>
 
+                {/* CENTER DOT */}
+                <div className="col-span-1 flex justify-center pt-3">
+                  <span className="w-5 h-5 rounded-full bg-cyan-400 shadow-[0_0_20px_#22d3ee]" />
+                </div>
+
+                {/* RIGHT SIDE */}
+                <div
+                  className={`col-span-4 ${
+                    isLeft ? "pl-12" : "text-left pr-12"
+                  }`}
+                >
+                  {isLeft ? (
+                    <div className="space-y-6">
+                      {block.items.map((item, i) => (
+                        <TimelineCard key={i} item={item} />
+                      ))}
+                    </div>
+                  ) : (
+                    <motion.div
+                      initial={{ opacity: 0, x: 60 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                    >
+                      <YearBadge year={block.year} />
+                    </motion.div>
+                  )}
+                </div>
+
+              </div>
             </div>
           );
         })}

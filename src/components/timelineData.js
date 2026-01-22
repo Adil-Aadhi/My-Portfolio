@@ -4,6 +4,11 @@ export const timelineData = [
     year: "2024",
     items: [
       {
+        title: "Department Tech Expo – NAAC Visit",
+        description:
+          "Organized and conducted a Department-level Tech Expo as part of the NAAC visit, showcasing student projects, technical innovations, and academic activities to the visiting committee."
+      },
+      {
         title: "College Final Project – EduStream",
         description:
           "Completed my major college project ‘EduStream’, focused on staff and student management, attendance tracking, and academic workflow automation."
@@ -26,7 +31,7 @@ export const timelineData = [
     ]
   },
   {
-    year: "2025",
+    year: "Present",
     items: [
       {
         title: "Python Full Stack Intern – Bridgeon",
@@ -48,11 +53,16 @@ export const timelineData = [
   {
     year: "2026",
     items: [
-      {
-        title: "Upcoming Project – AI Mock Interview",
-        description:
-          "Starting development of an AI-powered mock interview platform to help candidates prepare for technical interviews."
-      }
+              {
+          title: "Upcoming Project – 3D PC Customization",
+          description:
+            "An upcoming platform focused on interactive 3D PC customization, enabling users to visualize and design custom PC builds."
+        },
+      // {
+      //   title: "Upcoming Project – AI Mock Interview",
+      //   description:
+      //     "Starting development of an AI-powered mock interview platform to help candidates prepare for technical interviews."
+      // }
     ]
   }
 ];
