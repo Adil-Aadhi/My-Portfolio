@@ -115,7 +115,7 @@ const Hero = () => {
             max-w-2xl mx-auto mt-10 px-2
           "
         >
-          React Developer • AI Enthusiast • Building intelligent  
+          Python Fullstack Developer • AI Enthusiast • Building intelligent  
           web experiences and creative applications
         </motion.p>
 
