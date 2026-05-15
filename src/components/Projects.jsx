@@ -4,6 +4,20 @@ const Projects = () => {
 
   const projects = [
     {
+      name: "PC - CRAFT",
+      img: "/pccraft-2.png",
+      features: [
+        "3D Visualization",
+        "Combitbility Checking",
+        "Messaging System",
+        "Razorpay Payment Gateway",
+        "AI Agentic Model"
+      ],
+      tech: ["React", "Python", "Django Rest Framework", "Django Channels", "Fast API", "SQL"],
+      link: "https://pc-craft-frontent.vercel.app/",
+      git: "https://github.com/Adil-Aadhi/PC_craft_backend"
+    },
+    {
       name: "Technox – E-Commerce",
       img: "/technox.png",
       features: [
